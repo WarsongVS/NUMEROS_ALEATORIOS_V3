@@ -17,7 +17,7 @@ function generateTable() {
         const row = document.createElement('tr');
         for (let j = 0; j < 5 && cellNumber <= participants; j++) {
             const cell = document.createElement('td');
-            cell.innerHTML = `<div>${cellNumber}</div><img src="image.jpg"><br><input type="text" placeholder="Nombre">`;
+            cell.innerHTML = `<div>${cellNumber}</div><img src="image.png"><br><input type="text" placeholder="Nombre">`;
             row.appendChild(cell);
             cellNumber++;
         }
