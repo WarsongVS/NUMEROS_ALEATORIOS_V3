@@ -77,15 +77,16 @@ button:hover {
 #results {
     margin-top: 20px; /* Agrega un espacio superior para separar los resultados de otros elementos */
 }
-.imagen-LOGO&DALE {
+.imagen-logo-dale {
     width: auto; /* Mantiene el ancho original de la imagen */
     height: auto; /* Mantiene la altura original de la imagen */
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
     display: block; /* Elimina posibles espacios en blanco alrededor de la imagen */
-    margin: 0 auto; /* Centra la imagen horizontalmente si el contenedor tiene un ancho definido */
-    object-fit: contain; /* La imagen se ajustará dentro del contenedor sin recortarse ni distorsionarse */
+    margin: 0 auto; /* Centra la imagen horizontalmente en el contenedor */
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor en pantallas pequeñas */
+    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones si se limita el tamaño */
 }
+
 .contenedor-imagen {
-    text-align: center; /* Centra el contenido en línea dentro del contenedor */
-    width: 100%; /* Ajusta el ancho del contenedor según tus necesidades */
+    text-align: center; /* Centra la imagen dentro del contenedor */
+    width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
 }
