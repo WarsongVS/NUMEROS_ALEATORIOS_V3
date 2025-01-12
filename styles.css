@@ -51,12 +51,6 @@ body {
     align-items: center; /* Centra la imagen verticalmente */
 }
 
-/* Imagen lateral a la derecha del logo */
-.imagen-derecha {
-    max-width: 100%; /* Escala automáticamente el tamaño de la imagen para que no supere su contenedor */
-    height: auto; /* Mantiene las proporciones originales de la imagen */
-}
-
 /* Estilo compartido para etiquetas, campos de entrada y botones */
 label, input, button {
     display: block; /* Hace que cada elemento ocupe una línea completa */
@@ -82,4 +76,16 @@ button:hover {
 /* Estilo para la sección de resultados */
 #results {
     margin-top: 20px; /* Agrega un espacio superior para separar los resultados de otros elementos */
+}
+.imagen-LOGO&DALE {
+    width: auto; /* Mantiene el ancho original de la imagen */
+    height: auto; /* Mantiene la altura original de la imagen */
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    display: block; /* Elimina posibles espacios en blanco alrededor de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente si el contenedor tiene un ancho definido */
+    object-fit: contain; /* La imagen se ajustará dentro del contenedor sin recortarse ni distorsionarse */
+}
+.contenedor-imagen {
+    text-align: center; /* Centra el contenido en línea dentro del contenedor */
+    width: 100%; /* Ajusta el ancho del contenedor según tus necesidades */
 }
