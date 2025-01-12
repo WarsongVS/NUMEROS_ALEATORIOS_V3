@@ -77,6 +77,12 @@ button:hover {
 #results {
     margin-top: 20px; /* Agrega un espacio superior para separar los resultados de otros elementos */
 }
+
+img {
+    max-width: 100%; /* Asegura que todas las imágenes se adapten al contenedor */
+    height: auto; /* Mantiene las proporciones */
+}
+
 .imagen-logo-dale {
     width: auto; /* Mantiene el ancho original de la imagen */
     height: auto; /* Mantiene la altura original de la imagen */
