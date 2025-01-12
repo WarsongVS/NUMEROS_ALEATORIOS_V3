@@ -27,7 +27,7 @@ body {
 /* Estilo del encabezado que incluye el logo y la imagen lateral */
 .header {
     display: flex; /* Organiza los elementos en una línea flexible */
-    align-items: center; /* Alinea verticalmente los elementos al centro */
+    align-items: horizontal; /* Alinea horizontalmente los elementos al centro */
     justify-content: space-between; /* Coloca los elementos con espacio entre ellos */
     margin-bottom: 20px; /* Agrega un espacio debajo del encabezado */
 }
