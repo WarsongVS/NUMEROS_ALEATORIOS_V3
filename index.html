@@ -1,87 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Declaración del documento HTML5 y configuración del idioma -->
 <head>
-    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 para admitir caracteres especiales -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la página para que sea responsive -->
-    <title>Generador de Dinámicas</title> <!-- Título que se muestra en la pestaña del navegador** -->
-    <style>
-        /* Estilos en línea para la página */
-        body { 
-            font-family: Arial, sans-serif; /* Fuente predeterminada de la página */
-            text-align: center; /* Centra todo el texto */
-            margin: 20px; /* Espaciado externo alrededor del cuerpo */
-        }
-        input, button { 
-            padding: 10px; /* Espaciado interno en los elementos */
-            margin: 5px; /* Espaciado externo entre elementos */
-            width: 80%; /* Ocupan el 80% del ancho del contenedor */
-        }
-        button { 
-            cursor: pointer; /* Cambia el cursor a una manito al pasar sobre los botones */
-            background-color: #007BFF; /* Color azul para los botones */
-            color: white; /* Texto blanco en los botones */
-            border: none; /* Sin bordes */
-        }
-        table { 
-            margin: 20px auto; /* Espaciado superior/inferior y centrado horizontal */
-            border-collapse: collapse; /* Combina bordes de las celdas para evitar duplicados */
-        }
-        td { 
-            border: 1px solid black; /* Bordes negros para las celdas */
-            padding: 10px; /* Espaciado interno dentro de cada celda */
-            text-align: center; /* Centra el contenido de las celdas */
-            width: 100px; /* Ancho fijo para cada celda */
-            height: 100px; /* Altura fija para cada celda */
-        }
-        img { 
-            width: 50px; /* Define un ancho fijo para las imágenes */
-            height: 50px; /* Define una altura fija para las imágenes */
-        }
-        .highlight { 
-            background-color: yellow; /* Fondo amarillo para celdas resaltadas */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Dinámicas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Título principal de la página -->
-    <h1>Generador de Dinámicas</h1>
-    <!-- Encabezado que incluye el logo y la imagen lateral -->
-    <div class="contenedor-imagen">
-        <img src="LOGO&DALE.png" alt="LOGO&DALE" class="imagen-logo-dale"> <!-- Logo principal de la página -->
+    <div class="container">
+        <!-- Título -->
+        <h1>Generador de Dinámicas</h1>
+
+        <!-- Imagen debajo del título -->
+        <img src="LOGO&DALE.png" alt="LOGO" class="logo-img">
+
+        <!-- Formulario de entrada -->
+        <div class="input-group">
+            <label for="participants">Cantidad de participantes:</label>
+            <input type="number" id="participants" min="1" max="30" value="10">
+            <label for="minValue">Valor mínimo:</label>
+            <input type="number" id="minValue" value="1">
+        </div>
+        <div class="input-group">
+            <label for="quantity">Cantidad de números:</label>
+            <input type="number" id="quantity" min="1" value="3">
+            <label for="maxValue">Valor máximo:</label>
+            <input type="number" id="maxValue" value="10">
+        </div>
+
+        <!-- Botones en la misma línea -->
+        <div class="button-group">
+            <button id="generateTableBtn">Generar Tabla de Dinámica</button>
+            <button id="generateBtn">Generar Bendecidos</button>
+        </div>
+
+        <div class="button-group">
+            <button id="clearBtn">Limpiar</button>
+            <button id="exportPdfBtn">Exportar a PDF</button>
+        </div>
+
+        <!-- Resultados -->
+        <h1 id="tableTitle" style="display:none;">Lista de Ganadores</h1>
+        <div id="resultArea"></div>
     </div>
-    </div>
-       
-    <!-- Formulario para capturar datos -->
-    <label for="participants">Cantidad de participantes</label><br> <!-- Etiqueta para el campo de participantes -->
-    <input type="number" id="participants" min="1" max="30" value="10"><br> <!-- Entrada numérica para participantes -->
 
-    <label for="quantity">Cantidad de números:</label><br> <!-- Etiqueta para la cantidad de números -->
-    <input type="number" id="quantity" min="1" value="3"><br> <!-- Entrada numérica para la cantidad de números -->
-
-    <label for="minValue">Valor mínimo:</label><br> <!-- Etiqueta para el valor mínimo -->
-    <input type="number" id="minValue" value="1"><br> <!-- Entrada numérica para el valor mínimo -->
-
-    <label for="maxValue">Valor máximo:</label><br> <!-- Etiqueta para el valor máximo -->
-    <input type="number" id="maxValue" value="10"><br> <!-- Entrada numérica para el valor máximo -->
-
-    <!-- Botones principales -->
-    <button id="generateTableBtn">Generar tabla de dinámica</button> <!-- Botón para generar la tabla -->
-    <button id="generateBtn">Generar Bendecidos</button> <!-- Botón para generar "bendecidos" -->
-
-    <!-- Título para la tabla de ganadores, inicialmente oculto -->
-    <h1 id="tableTitle" style="display:none;">Lista de Ganadores</h1>
-
-    <!-- Área donde se generarán y mostrarán los resultados -->
-    <div id="resultArea"></div>
-
-    <!-- Botones adicionales -->
-    <button id="clearBtn">Limpiar</button> <!-- Botón para limpiar los resultados -->
-    <button id="exportPdfBtn">Exportar a PDF</button> <!-- Botón para exportar los resultados a PDF -->
-
-    <!-- Inclusión de bibliotecas y script personalizado -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> <!-- Biblioteca para exportar contenido HTML a PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> <!-- Biblioteca para capturar contenido HTML como imagen -->
-    <script src="script.js"></script> <!-- Archivo de JavaScript personalizado -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
