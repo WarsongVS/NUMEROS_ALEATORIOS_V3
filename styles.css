@@ -1,98 +1,60 @@
-/* Estilo general para el cuerpo de la página */
+/* Ajustar la disposición de los elementos */
 body {
-    font-family: Arial, sans-serif; /* Define la fuente predeterminada como Arial */
-    background-color: #f4f4f4; /* Establece un fondo gris claro */
-    display: flex; /* Utiliza un diseño flexible para organizar el contenido */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
-    margin: 0; /* Elimina márgenes predeterminados del navegador */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Estilo del contenedor principal */
 .container {
-    background-color: white; /* Fondo blanco para el contenedor */
-    padding: 20px; /* Espaciado interno dentro del contenedor */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo del título principal */
-#titulo {
-    text-align: center; /* Centra el texto horizontalmente */
-    font-size: 40px; /* Define un tamaño grande para el texto del título */
-    margin-bottom: 20px; /* Agrega un espacio debajo del título */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-/* Estilo del encabezado que incluye el logo y la imagen lateral */
-.header {
-    display: flex; /* Organiza los elementos en una línea flexible */
-    align-items: center; /* Alinea verticalmente los elementos al centro */
-    justify-content: space-between; /* Coloca los elementos con espacio entre ellos */
-    margin-bottom: 20px; /* Agrega un espacio debajo del encabezado */
-    flex-wrap: nowrap; /* Asegura que no haya un salto de línea */
-}
-.header img {
-    max-height: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
-    height: auto;
-    width: auto;
+.logo-img {
+    display: block;
+    margin: 0 auto 20px;
 }
 
-/* Estilo del logo */
-.logo {
-    width: 150px; /* Define el ancho fijo del logo */
-    height: 150px; /* Define la altura fija del logo */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-/* Contenedor de la imagen lateral */
-.side-image {
-    display: flex; /* Usa un diseño flexible para centrar la imagen */
-    justify-content: center; /* Centra la imagen horizontalmente */
-    align-items: center; /* Centra la imagen verticalmente */
+.input-group label,
+.input-group input {
+    width: 48%;
 }
 
-/* Estilo compartido para etiquetas, campos de entrada y botones */
-label, input, button {
-    display: block; /* Hace que cada elemento ocupe una línea completa */
-    width: 100%; /* Asegura que ocupen el 100% del ancho del contenedor */
-    margin-bottom: 10px; /* Espaciado inferior entre elementos */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-/* Estilo general de los botones */
 button {
-    background-color: #007BFF; /* Define un color azul para el fondo del botón */
-    color: white; /* Define un color blanco para el texto del botón */
-    border: none; /* Elimina los bordes predeterminados */
-    padding: 10px; /* Espaciado interno dentro del botón */
-    cursor: pointer; /* Cambia el cursor a una manito al pasar sobre el botón */
-    border-radius: 5px; /* Bordes redondeados del botón */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 48%;
 }
 
-/* Estilo para los botones al pasar el cursor */
 button:hover {
-    background-color: #0056b3; /* Cambia el color del fondo a un azul más oscuro */
-}
-
-/* Estilo para la sección de resultados */
-#results {
-    margin-top: 20px; /* Agrega un espacio superior para separar los resultados de otros elementos */
-}
-
-img {
-    max-width: 100%; /* Asegura que todas las imágenes se adapten al contenedor */
-    height: auto; /* Mantiene las proporciones */
-}
-
-.imagen-logo-dale {
-    width: auto; /* Mantiene el ancho original de la imagen */
-    height: auto; /* Mantiene la altura original de la imagen */
-    display: block; /* Elimina posibles espacios en blanco alrededor de la imagen */
-    margin: 0 auto; /* Centra la imagen horizontalmente en el contenedor */
-    max-width: 100%; /* Asegura que la imagen no se salga del contenedor en pantallas pequeñas */
-    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones si se limita el tamaño */
-}
-
-.contenedor-imagen {
-    text-align: center; /* Centra la imagen dentro del contenedor */
-    width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
+    background-color: #0056b3;
 }
