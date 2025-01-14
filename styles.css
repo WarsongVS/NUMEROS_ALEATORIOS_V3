@@ -6,15 +6,67 @@ body {
     padding: 20px;
 }
 
+/* Ajuste del contenedor principal */
 .container {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    width: 95%;
     max-width: 1200px;
     margin: auto;
 }
+
+/* Ajustes para que la tabla sea responsive */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ajuste de los botones */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+
+    td {
+        font-size: 12px;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 
 h1 {
     text-align: center;
