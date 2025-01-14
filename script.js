@@ -5,11 +5,11 @@ document.getElementById('clearBtn').addEventListener('click', clearResults);
 document.getElementById('exportPdfBtn').addEventListener('click', () => exportTable('pdf'));
 document.getElementById('exportJpgBtn').addEventListener('click', () => exportTable('jpg'));
 
-// Función para generar la tabla
 function generateTable() {
     const participants = parseInt(document.getElementById('participants').value);
     const resultArea = document.getElementById('resultArea');
-    resultArea.innerHTML = ''; // Limpiar contenido previo
+    resultArea.innerHTML = ''; // Limpiar solo el contenido dentro del área de resultados
+
     const table = document.createElement('table');
     let cellNumber = 1;
 
@@ -24,6 +24,9 @@ function generateTable() {
         table.appendChild(row);
     }
     resultArea.appendChild(table);
+
+    // Mostrar el título de la tabla
+    document.getElementById('tableTitle').style.display = 'block';
 }
 
 // Función para resaltar las celdas con diferentes colores en orden
@@ -78,6 +81,17 @@ function exportTable(format) {
     const timestamp = `${year}-${month}-${day}_${hours}_${minutes}_${seconds}`;
     const filename = `${timestamp}.${format}`;
 
+// Ajuste para capturar toda la tabla en PDF
+    if (format === 'pdf') {
+        html2pdf().from(elementClone).set({
+            filename: 'dinamica.pdf',
+            margin: 1,
+            html2canvas: { scale: 2 },
+            jsPDF: { orientation: 'portrait' }
+        }).save();
+    }
+}
+    
     // Hacer visible el título temporalmente
     title.style.display = 'block';
 
