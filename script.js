@@ -69,19 +69,17 @@ function clearResults() {
 
 // Función para exportar la tabla a PDF o JPG
 function exportTable(format) {
-    const element = document.getElementById('resultArea');  // El área que contiene la tabla a exportar
-    const title = document.getElementById('tableTitle');    // El título que se debe mostrar en la exportación
-    const currentDate = new Date();                         // Obtener la fecha actual para el nombre del archivo
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    const hours = String(currentDate.getHours()).padStart(2, '0');
-    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
-    const timestamp = `${year}-${month}-${day}_${hours}_${minutes}_${seconds}`;
-    const filename = `${timestamp}.${format}`;
+    const element = document.getElementById('resultArea');
+    const title = document.getElementById('tableTitle');
+    title.style.display = 'block';
 
-// Ajuste para capturar toda la tabla en PDF
+    const elementClone = element.cloneNode(true);
+    const titleClone = title.cloneNode(true);
+    titleClone.style.fontSize = '30px';
+    titleClone.style.textAlign = 'center';
+    elementClone.insertBefore(titleClone, elementClone.firstChild);
+
+    // Ajuste para capturar toda la tabla en PDF
     if (format === 'pdf') {
         html2pdf().from(elementClone).set({
             filename: 'dinamica.pdf',
@@ -90,32 +88,4 @@ function exportTable(format) {
             jsPDF: { orientation: 'portrait' }
         }).save();
     }
-}
-    
-    // Hacer visible el título temporalmente
-    title.style.display = 'block';
-
-    // Crear un clon del contenido para exportarlo sin afectar la página original
-    const elementClone = element.cloneNode(true);
-    const titleClone = title.cloneNode(true);
-    titleClone.style.fontSize = '30px';
-    titleClone.style.textAlign = 'center';
-    elementClone.insertBefore(titleClone, elementClone.firstChild);  // Insertar el título en el clon
-
-    // Exportar según el formato especificado (PDF o JPG)
-    if (format === 'pdf') {
-        // Exportar a PDF usando html2pdf
-        html2pdf().from(elementClone).set({ filename }).save();
-    } else if (format === 'jpg') {
-        // Exportar a JPG usando html2canvas
-        html2canvas(elementClone).then(canvas => {
-            const link = document.createElement('a');
-            link.download = filename;  // Nombre del archivo JPG
-            link.href = canvas.toDataURL('image/jpeg');  // Convertir el canvas a formato JPG
-            link.click();  // Descargar el archivo JPG
-        });
-    }
-
-    // Ocultar el título nuevamente después de la exportación
-    title.style.display = 'none';
 }
