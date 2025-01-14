@@ -71,21 +71,36 @@ function clearResults() {
 function exportTable(format) {
     const element = document.getElementById('resultArea');
     const title = document.getElementById('tableTitle');
+
+    // Obtener la fecha y hora actuales para el nombre del archivo
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+    const timestamp = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+    const filename = `Dinamica_${timestamp}.pdf`;
+
+    // Mostrar el título temporalmente
     title.style.display = 'block';
 
+    // Crear un clon del contenido para exportarlo sin afectar la página original
     const elementClone = element.cloneNode(true);
     const titleClone = title.cloneNode(true);
     titleClone.style.fontSize = '30px';
     titleClone.style.textAlign = 'center';
     elementClone.insertBefore(titleClone, elementClone.firstChild);
 
-    // Ajuste para capturar toda la tabla en PDF
-    if (format === 'pdf') {
-        html2pdf().from(elementClone).set({
-            filename: 'dinamica.pdf',
-            margin: 1,
-            html2canvas: { scale: 2 },
-            jsPDF: { orientation: 'portrait' }
-        }).save();
-    }
+    // Exportar a PDF usando html2pdf
+    html2pdf().from(elementClone).set({
+        filename: filename,
+        margin: 1,
+        html2canvas: { scale: 3 },
+        jsPDF: { orientation: 'portrait' }
+    }).save();
+
+    // Ocultar el título nuevamente después de la exportación
+    title.style.display = 'none';
 }
